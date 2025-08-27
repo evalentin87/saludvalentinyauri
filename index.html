@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Salud de Fam. Valentín Yauri</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Carga de la app -->
+  <script type="module" src="app.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <h1>Salud de Fam. Valentín Yauri</h1>
+    <p class="subtitle">Registro de usuarios, enfermedades y recetas con fotos</p>
+  </header>
+
+  <main class="container">
+    <div class="grid">
+      <!-- Usuarios -->
+      <section class="card">
+        <h2>👤 Usuarios</h2>
+        <div class="row">
+          <input id="nombreUsuario" type="text" placeholder="Nombre del usuario" />
+          <button id="btnAgregarUsuario" class="primary">Agregar usuario</button>
+        </div>
+        <div class="row">
+          <select id="selectUsuarios"></select>
+        </div>
+        <div id="infoUsuario" class="muted"></div>
+      </section>
+
+      <!-- Enfermedad -->
+      <section class="card">
+        <h2>🩺 Registrar enfermedad</h2>
+        <div class="row">
+          <input id="nombreEnfermedad" type="text" placeholder="Enfermedad" />
+          <input id="sintomas" type="text" placeholder="Síntomas" />
+        </div>
+
+        <div class="photo-block">
+          <div class="photo-actions">
+            <button id="btnTomarFoto" class="secondary">📸 Tomar foto</button>
+            <input id="foto" type="file" accept="image/*" capture="environment" hidden />
+            <button id="btnQuitarFoto" class="ghost" disabled>Quitar foto</button>
+          </div>
+          <div id="preview" class="preview empty">
+            <span class="muted">Sin foto</span>
+            <img id="previewImg" alt="Vista previa" />
+          </div>
+          <div class="progress" id="progress" hidden>
+            <div id="progressBar"></div>
+          </div>
+        </div>
+
+        <button id="btnRegistrarEnfermedad" class="primary">Guardar registro</button>
+      </section>
+    </div>
+
+    <!-- Historial -->
+    <section class="card">
+      <h2>📜 Historial de enfermedades</h2>
+      <div id="emptyState" class="muted">Selecciona un usuario para ver su historial.</div>
+      <div class="table-wrapper">
+        <table id="tablaEnfermedades">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Enfermedad</th>
+              <th>Síntomas</th>
+              <th>Foto</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" hidden></div>
+</body>
+</html>
