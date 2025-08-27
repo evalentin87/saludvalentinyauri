@@ -5,8 +5,6 @@
   <title>Salud de Fam. Valentín Yauri</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles.css" />
-  <!-- Carga de la app -->
-  <script type="module" src="app.js" defer></script>
 </head>
 <body>
   <header class="app-header">
@@ -25,11 +23,12 @@
         </div>
         <div class="row">
           <select id="selectUsuarios"></select>
+          <button id="btnEditarUsuario" class="secondary">✏️ Editar nombre</button>
         </div>
         <div id="infoUsuario" class="muted"></div>
       </section>
 
-      <!-- Enfermedad -->
+      <!-- Registrar enfermedad -->
       <section class="card">
         <h2>🩺 Registrar enfermedad</h2>
         <div class="row">
@@ -75,8 +74,37 @@
         </table>
       </div>
     </section>
+
+    <!-- Dashboard -->
+    <section class="card">
+      <h2>📈 Dashboard de enfermedades</h2>
+      <div class="row">
+        <label class="muted">Desde</label>
+        <input id="fechaInicio" type="date" />
+        <label class="muted">Hasta</label>
+        <input id="fechaFin" type="date" />
+        <button id="btnAplicarFiltro" class="secondary">Aplicar filtro</button>
+        <button id="btnResetFiltro" class="ghost">Restablecer</button>
+      </div>
+
+      <div class="chart-wrap">
+        <canvas id="chartMeses"></canvas>
+      </div>
+
+      <div>
+        <h3>🏆 Top enfermedades</h3>
+        <ol id="resumenTop" class="top-list"></ol>
+      </div>
+    </section>
   </main>
 
   <div id="toast" class="toast" hidden></div>
+
+  <!-- Librerías -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

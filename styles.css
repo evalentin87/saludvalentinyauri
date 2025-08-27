@@ -51,8 +51,8 @@ body{
 .card h2{ margin-top:0; font-size:18px}
 
 /* UI */
-.row{ display:flex; gap:10px; flex-wrap:wrap }
-input, select, button{
+.row{ display:flex; gap:10px; flex-wrap:wrap; align-items:center }
+input, select, button, label{
   border-radius:12px;
   border:1px solid var(--line);
   background:#111114;
@@ -60,7 +60,8 @@ input, select, button{
   padding:12px 14px;
   outline:none;
 }
-input, select{ flex:1; min-width: 180px }
+label{ border:none; background:transparent; padding:0 }
+input, select{ flex:1; min-width: 160px }
 button{
   cursor:pointer;
   transition:.15s ease;
@@ -113,6 +114,11 @@ tr:hover{ background:#141418 }
 /* Toast */
 .toast{
   position:fixed; left:50%; transform:translateX(-50%);
-  bottom:20px; background:#111; color:var(--text); border:1px solid var(--line);
+  bottom:20px; background:#111; color:#f5f7fb; border:1px solid var(--line);
   padding:12px 14px; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,.35);
 }
+
+/* Chart */
+.chart-wrap{ width:100%; max-width:100%; padding:10px 0 }
+.top-list{ margin-top:6px; }
+.top-list li{ margin:4px 0 }
